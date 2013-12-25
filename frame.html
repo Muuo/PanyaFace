@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="blockly_compressed.js"></script>
+    <script type="text/javascript" src="blocks_compressed.js"></script>
+    <script type="text/javascript" src="msg/js/en.js"></script>
+    <style>
+      html, body {
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+      }
+      .blocklySvg {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <script>
+      function init() {
+        Blockly.inject(document.body,
+            {path: './', toolbox: document.getElementById('toolbox')});
+        // Let the top-level application know that Blockly is ready.
+        window.parent.blocklyLoaded(Blockly);
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <xml id="toolbox" style="display: none">
+		<! -- TODO: Add toolbox category for panyabot --!>
+		<category name="Logic">
+		  <block type="controls_if"></block>
+		  <block type="logic_compare"></block>
+		  <block type="logic_operation"></block>
+		  <block type="logic_negate"></block>
+		  <block type="logic_boolean"></block>
+		  <block type="logic_null"></block>
+		  <block type="logic_ternary"></block>
+		</category>
+		
+		<category name="Loops">
+		    <block type="controls_repeat_ext">
+		      <value name="TIMES">
+		        <block type="math_number">
+		          <title name="NUM">10</title>
+		        </block>
+		      </value>
+		    </block>
+		    <block type="controls_whileUntil"></block>
+		    <block type="controls_for">
+		      <title name="VAR">i</title>
+		      <value name="FROM">
+		        <block type="math_number">
+		          <title name="NUM">1</title>
+		        </block>
+		      </value>
+		      <value name="TO">
+		        <block type="math_number">
+		          <title name="NUM">10</title>
+		        </block>
+		      </value>
+		      <value name="BY">
+		        <block type="math_number">
+		          <title name="NUM">1</title>
+		        </block>
+		      </value>
+		    </block>
+		    <block type="controls_forEach"></block>
+		    <block type="controls_flow_statements"></block>
+		</category>
+		
+		<category name="Math">
+		  <block type="math_number"></block>
+		  <block type="math_arithmetic"></block>
+		  <block type="math_single"></block>
+		  <block type="math_trig"></block>
+		  <block type="math_constant"></block>
+		  <block type="math_number_property"></block>
+		  <block type="math_change">
+		    <value name="DELTA">
+		      <block type="math_number">
+		        <title name="NUM">1</title>
+		      </block>
+		    </value>
+		  </block>
+		  <block type="math_round"></block>
+		  <block type="math_on_list"></block>
+		  <block type="math_modulo"></block>
+		  <block type="math_constrain">
+		    <value name="LOW">
+		      <block type="math_number">
+		        <title name="NUM">1</title>
+		      </block>
+		    </value>
+		    <value name="HIGH">
+		      <block type="math_number">
+		        <title name="NUM">100</title>
+		      </block>
+		    </value>
+		  </block>
+		  <block type="math_random_int">
+		    <value name="FROM">
+		      <block type="math_number">
+		        <title name="NUM">1</title>
+		      </block>
+		    </value>
+		    <value name="TO">
+		      <block type="math_number">
+		        <title name="NUM">100</title>
+		      </block>
+		    </value>
+		  </block>
+		  <block type="math_random_float"></block>
+		</category>
+		<category name="Lists">
+		  <block type="lists_create_empty"></block>
+		  <block type="lists_create_with"></block>
+		  <block type="lists_repeat">
+		    <value name="NUM">
+		      <block type="math_number">
+		        <title name="NUM">5</title>
+		      </block>
+		    </value>
+		  </block>
+		  <block type="lists_length"></block>
+		  <block type="lists_isEmpty"></block>
+		  <block type="lists_indexOf"></block>
+		  <block type="lists_getIndex"></block>
+		  <block type="lists_setIndex"></block>
+		</category>
+
+		<category name="Variables">
+		  <block type="variables_set"></block>
+		  <block type="variables_get"></block>
+		</category>
+  	</xml>
+  </body>
+</html>
