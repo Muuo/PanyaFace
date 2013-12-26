@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Blockly Demo: Iframe Blockly</title>
+  <title>PanyaBlock: Program the PanyaBot using Blockly</title>
   <style>
     html, body {
       height: 100%;
@@ -18,7 +18,7 @@
       font-size: 140%;
     }
     iframe {
-      width: 100%;
+      width: 50%;
       height: 100%;
       border-style: solid;
       border-color: #ddd;
@@ -32,8 +32,13 @@
       <td>
         <h1>PanyaBOT</h1>
 
-        <p>This is an interface you can use to tell panyabot what to do.</p>
-
+        <p>This is an interface you can use to tell panyabot what to do.</p>		
+		
+		<p>
+			<button onclick="showCode()">Show Python</button>
+			<button onclick="runCode()">Run Code</button>
+		</p>		
+		
       </td>
     </tr>
     <tr>
@@ -48,6 +53,27 @@
       </td>
     </tr>
   </table>
+<script>
+    function showCode() {
+      // Generate Python code and display it.
+      Blockly.Python.INFINITE_LOOP_TRAP = null;
+      var code = Blockly.Python.workspaceToCode();
+      alert(code);
+    }
 
+    function runCode() {
+      // Generate JavaScript code and run it.
+      window.LoopTrap = 1000;
+      Blockly.JavaScript.INFINITE_LOOP_TRAP =
+          'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+      var code = Blockly.JavaScript.workspaceToCode();
+      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+      try {
+        eval(code);
+      } catch (e) {
+        alert(e);
+      }
+    }
+  </script>
 </body>
 </html>

@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <script type="text/javascript" src="blockly_compressed.js"></script>
     <script type="text/javascript" src="blocks_compressed.js"></script>
+	<script type="text/javascript" src="blocks/panya.js"></script>
+	<script type="text/javascript" src="python_compressed.js"></script>
+ 	<script type="text/javascript" src="javascript_compressed.js"></script> 
     <script type="text/javascript" src="msg/js/en.js"></script>
     <style>
       html, body {
@@ -28,8 +31,14 @@
     </script>
   </head>
   <body onload="init()">
+	
     <xml id="toolbox" style="display: none">
 		<! -- TODO: Add toolbox category for panyabot --!>
+		<! -- Done! -->
+		<category name="Panya">
+		  <block type="panya_forward"></block>
+		</category>
+
 		<category name="Logic">
 		  <block type="controls_if"></block>
 		  <block type="logic_compare"></block>
@@ -129,6 +138,12 @@
 		  <block type="lists_indexOf"></block>
 		  <block type="lists_getIndex"></block>
 		  <block type="lists_setIndex"></block>
+		</category>
+
+		<category name="Text">
+		  <block type="text"></block>
+		  <block type="text_length"></block>
+		  <block type="text_print"></block>
 		</category>
 
 		<category name="Variables">
