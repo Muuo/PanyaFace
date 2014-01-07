@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PanyaBlock: Program the PanyaBot using Blockly</title>
+  <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/monokai.css" rel="stylesheet" type="text/css">
   <style>
     html, body {
@@ -42,11 +44,11 @@
         <p>This is an interface you can use to tell panyabot what to do.</p>		
 		
 		<p>
-			<button onclick="showCode()">Show Python</button>
+			<button class="btn" onclick="showCode()">Show Python</button>
 			<!-- <button onclick="runCode()">Run Code</button> -->
 			<br>
-			<button onclick="saveCode()">Save Code</button>
-			<button onclick="loadCode()">Load Code</button>
+			<button class="btn" onclick="saveCode()">Save Code</button>
+			<button class="btn" onclick="loadCode()">Load Code</button>
 		</p>		
 		
       </td>
@@ -59,7 +61,7 @@
             window.Blockly = blockly;
           }
         </script>
-        <iframe src="frame.html"></iframe>
+        <iframe id="IFrame" src="frame.html"></iframe>
       </td>
 	  <td height="99%">
 		<pre><code id="codebox" data-language="python">
@@ -116,7 +118,8 @@
 		});
 	}
   </script>	
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
   <script src="js/rainbow-custom.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
