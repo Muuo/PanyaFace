@@ -9,8 +9,11 @@
   <style>
     html, body {
       height: 100%;
+      width: 100%;
     }
     body {
+      height: 100%;
+      width: 100%;
       background-color: #fff;
       font-family: sans-serif;
       margin-top: 0;
@@ -32,29 +35,49 @@
       border-style: solid;
       border-color: #ddd;
       border-width: 0 1px 1px 0;
+
+      -moz-border-radius: 10px;
+	  -webkit-border-radius: 10px;
+	  border-radius: 10px; /* future proofing */
+	  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+    }
+    .col-wrap {
+        height: 100%;
+        width: 100%;
+    }
+    .blockly {
+      width: 50%;
+      height: 70%;
+    }
+    .content {
+      width: 50%;
+      height: 70%;
+    }
+    .container {
+      height: 100%;
     }
   </style>
 </head>
 <body>
-  <table width="100%" height="99%">
-    <tr>
-      <td>
+  <div class="container">
+    <div class="row">
         <h1>PanyaBOT</h1>
 
         <p>This is an interface you can use to tell panyabot what to do.</p>		
-		
-		<p>
+		</div>
+		<div class="row">
 			<button class="btn" onclick="showCode()">Show Python</button>
 			<!-- <button onclick="runCode()">Run Code</button> -->
-			<br>
+            <p></p>
+        </div>
+        <div class="row">
 			<button class="btn" onclick="saveCode()">Save Code</button>
 			<button class="btn" onclick="loadCode()">Load Code</button>
-		</p>		
-		
-      </td>
-    </tr>
+		<p></p>		
+    </div>
+    <div class="col-wrap">
     <tr>
-      <td height="99%" width="60%">
+      <div class="col-sm-6 col-md-6 blockly">
         <script>
           function blocklyLoaded(blockly) {
             // Called once Blockly is fully loaded.
@@ -62,13 +85,13 @@
           }
         </script>
         <iframe id="IFrame" src="frame.html"></iframe>
-      </td>
-	  <td height="99%">
+      </div>
+	  <div class="col-xs-4 col-sm-5 col-md-6 content">
 		<pre><code id="codebox" data-language="python">
 		</code></pre>
-	  </td>
-    </tr>
-  </table>
+	  </div>
+    </div>
+  </div>
 <script>
     function showCode() {
       // Generate Python code and display it.
@@ -118,7 +141,8 @@
 		});
 	}
   </script>	
-  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+      <script src="js/jquery.js"></script>
   <script src="js/rainbow-custom.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </body>
