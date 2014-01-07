@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>PanyaBlock: Program the PanyaBot using Blockly</title>
+  <link href="css/monokai.css" rel="stylesheet" type="text/css">
   <style>
     html, body {
       height: 100%;
@@ -13,12 +14,18 @@
       margin-top: 0;
       margin-bottom: 0;
     }
+	pre {
+	  -moz-border-radius: 10px;
+	  -webkit-border-radius: 10px;
+	  border-radius: 10px; /* future proofing */
+	  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+	}
     h1 {
       font-weight: normal;
       font-size: 140%;
     }
     iframe {
-      width: 50%;
+      width: 100%;
       height: 100%;
       border-style: solid;
       border-color: #ddd;
@@ -36,13 +43,16 @@
 		
 		<p>
 			<button onclick="showCode()">Show Python</button>
-			<button onclick="runCode()">Run Code</button>
+			<!-- <button onclick="runCode()">Run Code</button> -->
+			<br>
+			<button onclick="saveCode()">Save Code</button>
+			<button onclick="loadCode()">Load Code</button>
 		</p>		
 		
       </td>
     </tr>
     <tr>
-      <td height="99%">
+      <td height="99%" width="60%">
         <script>
           function blocklyLoaded(blockly) {
             // Called once Blockly is fully loaded.
@@ -51,6 +61,10 @@
         </script>
         <iframe src="frame.html"></iframe>
       </td>
+	  <td height="99%">
+		<pre><code id="codebox" data-language="python">
+		</code></pre>
+	  </td>
     </tr>
   </table>
 <script>
@@ -58,7 +72,11 @@
       // Generate Python code and display it.
       Blockly.Python.INFINITE_LOOP_TRAP = null;
       var code = Blockly.Python.workspaceToCode();
-      alert(code);
+	  Rainbow.color(code, 'python', function(highlighted_code) {
+    	console.log(highlighted_code);
+		$("#codebox").html(highlighted_code);
+		});
+	  Blockly.addChangeListener(myUpdateFunction);
     }
 
     function runCode() {
@@ -73,7 +91,32 @@
       } catch (e) {
         alert(e);
       }
+	}
+	var xml_text = "";
+	function saveCode() {
+      // Generate Python code and display it.
+      	var xml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
+  		xml_text = Blockly.Xml.domToText(xml);
+		alert("code saved!");
+      }
+
+	  function loadCode() {
+      // Generate Python code and display it.
+      	var xml = Blockly.Xml.textToDom(xml_text);
+  		Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
+		alert("code loaded!");
     }
-  </script>
+	function myUpdateFunction() {
+		// Generate Python code and display it.
+      	Blockly.Python.INFINITE_LOOP_TRAP = null;
+      	var code = Blockly.Python.workspaceToCode();
+	  	Rainbow.color(code, 'python', function(highlighted_code) {
+			console.log(highlighted_code);
+			$("#codebox").html(highlighted_code);
+		});
+	}
+  </script>	
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="js/rainbow-custom.min.js"></script>
 </body>
 </html>

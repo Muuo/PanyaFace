@@ -28,16 +28,56 @@ goog.provide('Blockly.Blocks.variables');
 goog.require('Blockly.Blocks');
 
 
-Blockly.Blocks['panya_forward'] = {
+Blockly.Blocks['panya_move'] = {
   init: function() {
     this.setHelpUrl('http://www.example.com/');
     this.setColour(160);
     this.appendValueInput("Displacement")
         .setCheck("Number")
-        .appendTitle("Move")
-        .appendTitle(new Blockly.FieldDropdown([["forward", "forward"], ["fackward", "reverse"]]), "Direction");
+        .appendTitle("move")
+        .appendTitle(new Blockly.FieldDropdown([["forward", "forward"], ["backward", "reverse"]]), "Direction")
+        .appendTitle("by");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip('');
+    this.setTooltip('Give the distance you want panyabot to move forward');
+  }
+};
+
+Blockly.Blocks['panya_turn'] = {
+  init: function() {
+    this.setHelpUrl('http://www.example.com/');
+    this.setColour(160);
+    this.appendDummyInput()
+        .appendTitle("turn")
+        .appendTitle(new Blockly.FieldDropdown([["left ⟲", "left"], ["right ⟳", "right"]]), "direction");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip('Turn the PanyaBot in the given direction.');
+  }
+};
+
+Blockly.Blocks['panya_stop'] = {
+  init: function() {
+    this.setHelpUrl('http://www.example.com/');
+    this.setColour(160);
+    this.appendDummyInput()
+        .appendTitle("Stop");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip('Stop the PanyaBot');
+  }
+};
+
+Blockly.Blocks['panya_set_speed'] = {
+  init: function() {
+    this.setHelpUrl('http://www.example.com/');
+    this.setColour(160);
+    this.appendValueInput("SPEED")
+        .setCheck("Number")
+        .appendTitle("set speed to");
+    this.setInputsInline(true);
+	this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip('Set the desired speed for the PanyaBot');
   }
 };
