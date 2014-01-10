@@ -53,28 +53,41 @@
       width: 50%;
       height: 70%;
     }
-    .container {
+    .bigcont {
       height: 100%;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .headcont {
+        padding-right: 30px;
+        padding-left: 30px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container bigcont">
+  <div class="container headcont">
     <div class="row">
         <h1>PanyaBOT</h1>
 
         <p>This is an interface you can use to tell panyabot what to do.</p>		
 		</div>
-		<div class="row">
-			<button class="btn" onclick="showCode()">Show Python</button>
-			<!-- <button onclick="runCode()">Run Code</button> -->
-            <p></p>
-        </div>
         <div class="row">
 			<button class="btn" onclick="saveCode()">Save Code</button>
 			<button class="btn" onclick="loadCode()">Load Code</button>
 		<p></p>		
-    </div>
+        </div>
+		<div class="row">
+            <div class="col-md-2" style="padding-left:0px">
+               <button class="btn btn-success" onclick="runCode()"><span class="glyphicon glyphicon-play"></span></button> 
+            </div>
+            <div class="col-md-2 col-md-offset-4">
+			<button class="btn blah btn-danger" onclick="showCode()"><span class="glyphicon glyphicon-refresh"></span></button>
+			<!-- <button onclick="runCode()">Run Code</button> -->
+            <p></p>
+            </div>
+        </div>
+     </div>
     <div class="col-wrap">
     <tr>
       <div class="col-sm-6 col-md-6 blockly">
@@ -102,6 +115,8 @@
 		$("#codebox").html(highlighted_code);
 		});
 	  Blockly.addChangeListener(myUpdateFunction);
+      $('.btn.blah').removeClass('btn-danger');
+      $('.btn.blah').toggleClass('btn-success');
     }
 
     function runCode() {
@@ -139,7 +154,7 @@
 			console.log(highlighted_code);
 			$("#codebox").html(highlighted_code);
 		});
-	}
+   	}
   </script>	
   <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
       <script src="js/jquery.js"></script>

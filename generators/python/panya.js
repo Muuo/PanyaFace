@@ -40,7 +40,7 @@ Blockly.Python['panya_move'] = function(block) {
   var value_displacement = Blockly.Python.valueToCode(block, 'Displacement', Blockly.Python.ORDER_NONE) || '0';
   var dropdown_direction = block.getTitleValue('Direction');
   // Move the translate the panyabot through the given displacement vector
-  var code = 'PanyaMove('+"\'"+dropdown_direction+"\',"+value_displacement+')\n';
+  var code = 'panya.PanyaMove('+"\'"+dropdown_direction+"\',"+value_displacement+')\n';
   if (!Blockly.Python.definitions_['import_panya']) {
 	Blockly.Python.definitions_['import_panya'] = 'import panya';
 	}
@@ -50,7 +50,7 @@ Blockly.Python['panya_move'] = function(block) {
 Blockly.Python['panya_turn'] = function(block) {
   var dropdown_direction = block.getTitleValue('direction');
   // Turn the panyabot in the specified direction
-  var code = 'PanyaTurn('+"\'"+dropdown_direction+"\')\n";
+  var code = 'panya.PanyaTurn('+"\'"+dropdown_direction+"\')\n";
   if (!Blockly.Python.definitions_['import_panya']) {
 	Blockly.Python.definitions_['import_panya'] = 'import panya';
 	}
@@ -60,7 +60,7 @@ Blockly.Python['panya_turn'] = function(block) {
 Blockly.Python['panya_set_speed'] = function(block) {
   var value_speed = Blockly.Python.valueToCode(block, 'SPEED', Blockly.Python.ORDER_NONE) || '0';
   // Set the panyabot's speed to the given value
-  var code = 'PanyaSetSpeed('+"\'"+value_speed+"\')\n";
+  var code = 'panya.PanyaSetSpeed('+"\'"+value_speed+"\')\n";
   if (!Blockly.Python.definitions_['import_panya']) {
 	Blockly.Python.definitions_['import_panya'] = 'import panya';
 	}
