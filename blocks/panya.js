@@ -17,10 +17,6 @@
  * limitations under the License.
  */
 
-/**
- * @fileoverview Variable blocks for Blockly.
- * @author fraser@google.com (Neil Fraser)
- */
 'use strict';
 
 goog.provide('Blockly.Blocks.variables');
