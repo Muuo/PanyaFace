@@ -1,3 +1,6 @@
-This the html interface that will be used to control PanyaBot.
+PanyaFace
+=========
 
-Sorry... I was too lazy to remove the unecessary Blockly files.
+This is the html interface that will be used to control PanyaBot
+
+Sorry... I still have a lot of unecessary cluter here. It will clear up with time. :-)
