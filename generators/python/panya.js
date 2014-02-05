@@ -34,10 +34,9 @@ Blockly.Python['panya_stop'] = function(block) {
 
 Blockly.Python['panya_move'] = function(block) {
   // Passed argument is the time for whic we want panya to move
-  var value_time = Blockly.Python.valueToCode(block, 'Time', Blockly.Python.ORDER_NONE) || '0';
   var dropdown_direction = block.getTitleValue('Direction');
   // Move the translate the panyabot through the given displacement vector
-  var code = 'panya.PanyaMove('+"\'"+dropdown_direction+"\',"+value_time+')\n';
+  var code = 'panya.PanyaMove('+"\'"+dropdown_direction+"\')\n";
   if (!Blockly.Python.definitions_['import_panya']){
 	Blockly.Python.definitions_['import_panya'] = 'import panya';
 	}

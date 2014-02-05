@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PanyaBlock: Program the PanyaBot using Blockly</title>
+  <link rel="icon" type="image/png" href="media/fav.png" />
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/monokai.css" rel="stylesheet" type="text/css">
   <style>
@@ -25,10 +26,6 @@
 	  border-radius: 10px; /* future proofing */
 	  -khtml-border-radius: 10px; /* for old Konqueror browsers */
 	}
-    h1 {
-      font-weight: normal;
-      font-size: 140%;
-    }
     iframe {
       width: 100%;
       height: 100%;
@@ -46,12 +43,12 @@
         width: 100%;
     }
     .blockly {
-      width: 50%;
-      height: 70%;
+      //width: 50%;
+      height: 65%;
     }
     .content {
-      width: 50%;
-      height: 70%;
+      //width: 50%;
+      height: 65%;
     }
     .bigcont {
       height: 100%;
@@ -62,35 +59,90 @@
         padding-right: 30px;
         padding-left: 30px;
     }
+    .panyapiccont {
+        height: 100px;
+        width: auto;
+    }
+    .panyapic {
+        height: 100%;
+        width: auto;
+    }
+    .panyatitle {
+        margin-top: 30px;
+    }
   </style>
 </head>
 <body>
+  
+  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelled="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Tutorial</h4>
+            </div><!-- /.modal-header -->
+            <div class="modal-body">
+                <p>First Slide&hellip;</p>
+            </div><!-- /.modal-body -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">Next</button>
+            </div><!-- /.modal-footer -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.moda-dialog -->
+  </div><!-- /.modal -->
+
+  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelled="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Tutorial</h4>
+            </div><!-- /.modal-header -->
+            <div class="modal-body">
+                <p>Second Slide&hellip;</p>
+            </div><!-- /.modal-body -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#myModal1">Next</button>
+            </div><!-- /.modal-footer -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.moda-dialog -->
+  </div><!-- /.modal -->
+
+
   <div class="container bigcont">
   <div class="container headcont">
-    <div class="row">
-        <h1>PanyaBOT</h1>
-
-        <p>This is an interface you can use to tell panyabot what to do.</p>		
-		</div>
+    <div class="row" style="padding-top:20px;">
+        <div class="container col-md-2" style="padding-left: 0px;"><h1 class="panyatitle">PanyaBOT</h1></div>
+        <div class= "container panyapiccont col-md-6"><img class="panyapic" src="media/mouse.png"></img></div>
+        </div>
+        <!-- <div class="row" style="height: 50px;"><p></p></div> -->
         <div class="row">
-			<button class="btn" onclick="saveCode()">Save Code</button>
+        <div class="col-md-6"><h3><small>This is an interface you can use to tell panyabot what to do.</small></h3></div></div>
+        <div class="row">
+		<div class="col-md-4">	
+            <button class="btn" onclick="saveCode()">Save Code</button>
 			<button class="btn" onclick="loadCode()">Load Code</button>
 		<p></p>		
         </div>
-		<div class="row">
-            <div class="col-md-2" style="padding-left:0px">
+        <div class="col-md-2">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+                Start Tutorial
+            </button>
+        </div>
+            <div class="col-xs-12 col-sm-6 col-md-1 col-md-offset-2">
                <button class="btn btn-success" onclick="runCode()"><span class="glyphicon glyphicon-play"></span></button> 
             </div>
-            <div class="col-md-2 col-md-offset-4">
+            <div class="col-xs-12 col-sm-6 col-md-1">
 			<button class="btn blah btn-danger" onclick="showCode()"><span class="glyphicon glyphicon-refresh"></span></button>
 			<!-- <button onclick="runCode()">Run Code</button> -->
-            <p></p>
             </div>
         </div>
      </div>
     <div class="col-wrap">
     <tr>
-      <div class="col-sm-6 col-md-6 blockly">
+      <div class="col-sm-12 col-md-6 blockly">
         <script>
           function blocklyLoaded(blockly) {
             // Called once Blockly is fully loaded.
@@ -99,7 +151,7 @@
         </script>
         <iframe id="IFrame" src="frame.html"></iframe>
       </div>
-	  <div class="col-xs-4 col-sm-5 col-md-6 content">
+	  <div class="col-xs-12 col-sm-12 col-md-6 content">
 		<pre><code id="codebox" data-language="python">
 		</code></pre>
 	  </div>

@@ -25,20 +25,16 @@ goog.require('Blockly.Blocks');
 
 
 Blockly.Blocks['panya_move'] = {
-  init: function() {
-    this.setHelpUrl('http://www.example.com/');
-    this.setColour(160);
-    this.appendValueInput("Time")
-        .setCheck("Number")
-        .appendTitle("move")
-        .appendTitle(new Blockly.FieldDropdown([["forward", "forward"], ["backward", "reverse"]]), "Direction")
-        .appendTitle("for");
-    this.appendDummyInput()
-        .appendTitle("secs");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip('Give the time for which you want panyabot to move forward');
+    init: function() {
+        this.setHelpUrl('http://www.example.com/');
+        this.setColour(160);
+        this.appendDummyInput()
+            .appendTitle("move")
+            .appendTitle(new Blockly.FieldDropdown([["forward", "forward"], ["forward", "forward"]]), "Direction");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip('Give the time for which you want panyabot to move forward');
   }
 };
 
